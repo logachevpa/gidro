@@ -32,9 +32,7 @@ class Gidrophone():
     def process(self, data):
         C = data[self.bound[0]:self.bound[1], self.bound[2]:self.bound[3]]
         C = (C - np.mean(C))/np.std(C)
-        #C = prepair.sub_prev(C)
         signal = []
-        means = []
         window_avr_i = 0
         for i in range(len(C)-self.zoom):
             zoomed =  interpolation.zoom(C[i:i+2,:], self.zoom, order=3)
@@ -58,7 +56,6 @@ class Gidrophone():
         plt.subplot(2,1,2)
         plt.plot(np.abs(np.fft.fft(data))[:len(data)//4])
         plt.savefig(self.output)
-
 
     def run(self):
         data = self.process(self.open_raw())
