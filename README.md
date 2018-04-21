@@ -13,7 +13,7 @@ pip3 install -r requirements.txt
 
 # Запуск
 ```
-cd gidrophone
+cd hydrophone
 python main.py  --path ../../data/raw_2018.02.15_11.02.38.raw --bound 0 3700 768 782 --zoom 10 --window 100
 ```
 
